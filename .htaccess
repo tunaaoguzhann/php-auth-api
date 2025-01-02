@@ -1,0 +1,34 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# PHP değerlerini ayarla
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Güvenlik başlıkları
+Header set X-Content-Type-Options "nosniff"
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+# CORS başlıkları
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+
+# PHP hata gösterimini kapat
+php_flag display_errors off
+php_value error_reporting 0
+
+# Directory listing'i kapat
+Options -Indexes
+
+# Dosya erişimlerini kısıtla
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch> 

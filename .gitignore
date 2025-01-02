@@ -1,0 +1,49 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/logs/
+php_errors.log
+
+# Cache
+/cache/
+*.cache
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.tmp
+
+# Build files
+/build/
+/dist/
+
+# Test coverage
+/coverage/
+/phpunit.xml
+
+# Composer
+composer.phar
+composer.lock
+
+# Application specific
+/public/uploads/
+/storage/*.key 
